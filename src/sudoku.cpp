@@ -24,8 +24,8 @@ bool sudoku_solver::read_file(const string path)
 
 }
 
-//Next three function are not used in the final code, but they were part of my first approach, I kept them here
-//to document and show how I got to the final solution. 
+//Next three functions are not used in the final code, but they were part of my first approach, I kept them here
+//to document and show how I came up with the final solution. 
 
 //Accessing the board members, row by row
 vector<vector<char>> sudoku_solver::get_sudoku_horizontally()
@@ -120,13 +120,11 @@ void sudoku_solver::print_board(vector<vector<char>> board) {
         for (char number : row) {
             cout << number << ' ';
         }
-        cout << '\n';
+        cout << endl;
     }
 }
 
-#ifdef UNIT_TEST
-void sudoku_solver::set_file_content(const vector<char> content)
+void sudoku_solver::set_file_content(vector<vector<char>> content)
 {
     board = content;
 }
-#endif

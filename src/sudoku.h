@@ -19,7 +19,6 @@ class sudoku_solver
         bool is_valid(int row, int col, char c);
         bool solve();
         void print_board(vector<vector<char>> board);
-        #ifdef UNIT_TEST
-            void set_file_content(const vector<char> content);
-        #endif
+        void set_file_content(vector<vector<char>> content);
+
 };

@@ -53,14 +53,14 @@ vector<vector<char>> sudoku_solver::get_sudoku_square()
     vector<vector<char>> squares(9);
     // vector<vector<char>> rows = get_sudoku_horizontally();
 
-    for (int blockRow = 0; blockRow < 3; ++blockRow) {
-        for (int blockCol = 0; blockCol < 3; ++blockCol) {
-            int squareIndex = blockRow * 3 + blockCol;
+    for (int block_row = 0; block_row < 3; block_row++) {
+        for (int block_col = 0; block_col < 3; block_col++) {
+            int square_index = block_row * 3 + block_col;
             for (int i = 0; i < 3; ++i) {
                 for (int j = 0; j < 3; ++j) {
-                    int row = blockRow * 3 + i;
-                    int col = blockCol * 3 + j;
-                    squares[squareIndex].push_back(board[row][col]);
+                    int row = block_row * 3 + i;
+                    int col = block_col * 3 + j;
+                    squares[square_index].push_back(board[row][col]);
                 }
             }
         }
@@ -86,10 +86,13 @@ bool sudoku_solver::is_valid(int row, int col, char c) {
 
     int box_row = (row / 3) * 3;
     int box_col = (col / 3) * 3;
-    for (int i = 0; i < 3; ++i)
-        for (int j = 0; j < 3; ++j)
-            if (board[box_row + i][box_col + j] == c)
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (board[box_row + i][box_col + j] == c) {
                 return false;
+            }
+        }
+    }
 
     return true;
 }
